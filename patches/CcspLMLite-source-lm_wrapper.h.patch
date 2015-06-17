@@ -1,0 +1,36 @@
+--- ./CcspLMLite/source/lm_wrapper.h
++++ ./CcspLMLite/source/lm_wrapper.h	2015-04-22 14:22:31.162821009 -0600
+@@ -20,6 +20,7 @@
+ #include <sys/socket.h>
+ #include <lm_api.h>
+ #include "moca_hal.h"
++#include "ccsp_custom_logs.h"
+ /*****************
+  *
+  */
+@@ -99,6 +100,25 @@
+     int LeaseTime;
+ }LM_host_entry_t;
+ 
++ANSC_HANDLE bus_handle;
++
++#define  CcspTraceBaseStr(arg ...)                                                             \
++            do {                                                                            \
++                snprintf(pTempChar1, 4095, arg);                                         	\
++            } while (FALSE)
++			
++#define  CcspWifiTrace(msg)                         \
++{\
++	                char*   pTempChar1 = (char*)malloc(4096);                                     \
++                if ( pTempChar1 )                                                             \
++                {                                                                            \
++					char	sfn[32];														 \
++                    CcspTraceBaseStr msg;                                                       \
++				    WriteLog(pTempChar1,bus_handle,"eRT.","Device.LogAgent.WifiLogMsg"); \
++                    free(pTempChar1);                                                         \
++                }\
++}
++
+ /******************
+  *
+  */
