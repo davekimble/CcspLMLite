@@ -8,4 +8,4 @@ liblmapi_la_SOURCES= \
 liblmapi_la_DEPENDENCIES=
 liblmapi_la_LIBADD=$(liblmapi_la_DEPENDENCIES)
 liblmapi_ladir = $(top_srcdir)/source/include/lmapi
-liblmapi_la_HEADERS = lm_api.h
+liblmapi_la_HEADERS = source/lm_api.h
