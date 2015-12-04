@@ -272,4 +272,6 @@ Hosts_AddHost(int instanceNum);
 
 void Hosts_RmHosts();
 
+PLmObjectHost Hosts_FindHostByPhysAddress(char *);
+PLmObjectHost Hosts_AddHostByPhysAddress(char *);
 #endif
